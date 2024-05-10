@@ -3,18 +3,13 @@
   margin: 50px auto;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.177
-  ); /* Transparent white background */
-  box-shadow: 0 0 10px rgba(38, 219, 255, 0.452); /* Soft shadow */
+  background-color: rgba(255, 255, 255, 0.309); /* Transparent white background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.702); /* Soft shadow */
   font-family: Arial, sans-serif; /* Setting font family */
 }
 
 .background {
-  background-image: url("https://cdn.discordapp.com/attachments/991705054828560496/1237622524397883446/5570852.jpg?ex=663da2cb&is=663c514b&hm=1fcc090ff6c84cdf14a3b0b05311849eb1db4189f37b5b8289067f1f169fd352&");
+  background-image: url("https://cdn.discordapp.com/attachments/991705054828560496/1238442290347905094/2315.jpg?ex=663f4cc3&is=663dfb43&hm=47712445f8dfd4d0e445303c5e8f429e66af30e9730216bff3d032fd87564a76&");
   background-size: cover;
   background-position: center;
   position: fixed; /* Fixed position to cover the entire viewport */
@@ -27,8 +22,9 @@
 
 .heading {
   text-align: center;
-  color: #000000c7; /* Dark text color */
+  color: #00000096; /* Dark text color */
   margin-bottom: 20px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); /* Add text shadow for embossed effect */
 }
 
 .input-box {
@@ -37,6 +33,7 @@
   border: none;
   border-radius: 15px;
   margin-bottom: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .button-add {
@@ -79,7 +76,15 @@ li {
   border: 1px solid #cccccca3; /* Adding border */
   padding: 10px; /* Adding padding for better appearance */
   margin-right: 17px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease; /* Adding transition for smooth effect */
 }
+
+li:hover {
+  transform: translateY(-3px); /* Move the item up slightly on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Add a stronger shadow on hover */
+}
+
 
 .text {
   flex: 1;
