@@ -14,7 +14,7 @@
 }
 
 .background {
-  background-image: url("https://cdn.discordapp.com/attachments/991705054828560496/1238442290347905094/2315.jpg?ex=663f4cc3&is=663dfb43&hm=47712445f8dfd4d0e445303c5e8f429e66af30e9730216bff3d032fd87564a76&");
+  background-image: url("./2315.jpg");
   background-size: cover;
   background-position: center;
   position: fixed; /* Fixed position to cover the entire viewport */
