@@ -17,7 +17,7 @@ function ToDoList() {
 
   const [tasks, setTasks] = useState(getTasksFromStorage());
   const [newTask, setNewTask] = useState("");
-  const [editedTask, setEditedTask] = useState({ index: null, text: "" });
+  const [editedTask, setEditedTask] = useState({});
 
   useEffect(() => {
     saveTasksToStorage(tasks);
@@ -30,7 +30,7 @@ function ToDoList() {
   function addTask() {
     if (newTask.trim() !== "") {
       toast.success("Task added successfully!");
-      setTasks((t) => [...t, { text: newTask, completed: false }]);
+      setTasks((t) => [...t, { text: newTask }]);
       setNewTask("");
     } else {
       toast.error("Please enter a valid task!");
@@ -95,7 +95,7 @@ function ToDoList() {
         </button>
         <ol className="task-list">
           {tasks.map((task, index) => (
-            <li key={index} className={task.completed ? "completed" : ""}>
+            <li key={index}>
               {editedTask.index === index ? (
                 <>
                   <input

@@ -3,14 +3,31 @@
   margin: 50px auto;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.282
-  ); /* Transparent white background */
+  background-color: rgba(255, 255, 255, 0.282); /* Transparent white background */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.702); /* Soft shadow */
   font-family: Arial, sans-serif; /* Setting font family */
+}
+
+@media (max-width: 443px) {
+  .to-do-list {
+    max-width: 100%; /* Make the to-do list take the full width of the screen */
+    margin: 20px; /* Reduce the margin to make better use of space */
+    padding: 15px; /* Adjust padding for smaller screens */
+    font-size: 14px; /* Reduce font size for better readability on small screens */
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start for better readability */
+    padding: 10px; /* Adjust padding */
+    margin-right: 0; /* Remove right margin */
+    text-align: left; /* Align text to the left */
+  }
+
+  .text {
+    max-width: 100%; /* Allow the text to take full width */
+    margin-bottom: 5px; /* Small gap below the text */
+  }
 }
 
 .background {
@@ -109,6 +126,7 @@ li:hover {
   max-width: calc(100% - 120px); /* Adjust the maximum width as needed */
   overflow: hidden; /* Hide overflow */
   white-space: normal; /* Allow text to wrap */
+  margin-right: 10px; /* Small gap to the right of the text */
 }
 
 .button-delete,
