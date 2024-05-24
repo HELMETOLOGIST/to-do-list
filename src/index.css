@@ -3,7 +3,12 @@
   margin: 50px auto;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.282); /* Transparent white background */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.282
+  ); /* Transparent white background */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.702); /* Soft shadow */
   font-family: Arial, sans-serif; /* Setting font family */
 }
@@ -158,4 +163,8 @@ li:hover {
 .task-list {
   max-height: 400px; /* Set a maximum height */
   overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.completed-task .text {
+  text-decoration: line-through;
 }

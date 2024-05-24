@@ -18,6 +18,7 @@ function ToDoList() {
   const [tasks, setTasks] = useState(getTasksFromStorage());
   const [newTask, setNewTask] = useState("");
   const [editedTask, setEditedTask] = useState({});
+  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     saveTasksToStorage(tasks);
@@ -28,13 +29,19 @@ function ToDoList() {
   }
 
   function addTask() {
-    if (newTask.trim() !== "") {
-      toast.success("Task added successfully!");
-      setTasks((t) => [...t, { text: newTask }]);
-      setNewTask("");
-    } else {
+    if (newTask.trim() === "") {
       toast.error("Please enter a valid task!");
+      return;
     }
+
+    if (tasks.some((task) => task.text === newTask)) {
+      toast.error("Task already exists!");
+      return;
+    }
+
+    toast.success("Task added successfully!");
+    setTasks((t) => [...t, { text: newTask, completed: false }]);
+    setNewTask("");
   }
 
   function deleteTask(index) {
@@ -44,7 +51,7 @@ function ToDoList() {
   }
 
   function upTask(index) {
-    if (index > 0) {
+    if (index > 0 && !edit) {
       const updatedTasks = [...tasks];
       const temp = updatedTasks[index];
       updatedTasks[index] = updatedTasks[index - 1];
@@ -54,7 +61,7 @@ function ToDoList() {
   }
 
   function downTask(index) {
-    if (index < tasks.length - 1) {
+    if (index < tasks.length - 1 && !edit) {
       const updatedTasks = [...tasks];
       const temp = updatedTasks[index];
       updatedTasks[index] = updatedTasks[index + 1];
@@ -65,18 +72,41 @@ function ToDoList() {
 
   function editTask(index) {
     setEditedTask({ index, text: tasks[index].text });
+    setEdit(true);
   }
 
   function saveEditedTask() {
-    if (editedTask.text.trim() !== "") {
-      const updatedTasks = [...tasks];
-      updatedTasks[editedTask.index].text = editedTask.text;
-      setTasks(updatedTasks);
-      setEditedTask({ index: null, text: "" });
-      toast.success("Task edited successfully!");
-    } else {
+    if (editedTask.text.trim() === "") {
       toast.error("Please enter a valid task!");
+      return;
     }
+
+    if (
+      tasks.some(
+        (task, i) => task.text === editedTask.text && i !== editedTask.index
+      )
+    ) {
+      toast.error("Task already exists!");
+      return;
+    }
+
+    const updatedTasks = [...tasks];
+    updatedTasks[editedTask.index].text = editedTask.text;
+    setTasks(updatedTasks);
+    setEditedTask({ index: null, text: "" });
+    setEdit(false);
+    toast.success("Task edited successfully!");
+  }
+
+  function toggleCompleteTask(index) {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = !updatedTasks[index].completed;
+    setTasks(updatedTasks);
+    toast.info(
+      updatedTasks[index].completed
+        ? "Task marked as complete!"
+        : "Task marked as incomplete!"
+    );
   }
 
   return (
@@ -95,7 +125,7 @@ function ToDoList() {
         </button>
         <ol className="task-list">
           {tasks.map((task, index) => (
-            <li key={index}>
+            <li key={index} className={task.completed ? "completed-task" : ""}>
               {editedTask.index === index ? (
                 <>
                   <input
@@ -112,46 +142,57 @@ function ToDoList() {
                 </>
               ) : (
                 <>
+                  <span
+                    className="custom-checkbox"
+                    style={{
+                      display: "inline-block",
+                      position: "relative",
+                      width: "15px",
+                      height: "15px",
+                      borderRadius: "40%",
+                      border: "1px solid #ccc",
+                      marginRight: "5px",
+                    }}
+                    onClick={() => toggleCompleteTask(index)}
+                  >
+                    {task.completed && (
+                      <span
+                        className="checkmark"
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                          width: "8px",
+                          height: "8px",
+                          backgroundColor: "transparent",
+                          borderRadius: "40%",
+                          border: "2px solid #000",
+                        }}
+                      ></span>
+                    )}
+                  </span>
                   <span className="text">{task.text}</span>
                   <button
                     className="button-delete"
                     onClick={() => deleteTask(index)}
-                    style={{
-                      opacity: 0.7,
-                      boxShadow: "0 3px 6px rgba(0, 0, 0, 0.16)",
-                    }} // Adjust opacity and shadow here
                   >
                     <FaTrash />
                   </button>
                   <button
                     className="button-edit"
                     onClick={() => editTask(index)}
-                    style={{
-                      opacity: 0.7,
-                      boxShadow: "0 3px 6px rgba(0, 0, 0, 0.16)",
-                    }} // Adjust opacity and shadow here
                   >
                     <FaEdit />
                   </button>
-                  <button
-                    className="button-up"
-                    onClick={() => upTask(index)}
-                    style={{
-                      opacity: 0.7,
-                      boxShadow: "0 3px 6px rgba(0, 0, 0, 0.16)",
-                    }} // Adjust opacity and shadow here
-                  >
-                    <FaArrowUp />
+                  <button className="button-up" onClick={() => upTask(index)}>
+                    {index === 0 ? null : <FaArrowUp />}
                   </button>
                   <button
                     className="button-down"
                     onClick={() => downTask(index)}
-                    style={{
-                      opacity: 0.7,
-                      boxShadow: "0 3px 6px rgba(0, 0, 0, 0.16)",
-                    }} // Adjust opacity and shadow here
                   >
-                    <FaArrowDown />
+                    {index === tasks.length - 1 ? null : <FaArrowDown />}
                   </button>
                 </>
               )}
