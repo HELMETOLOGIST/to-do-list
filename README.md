@@ -40,27 +40,27 @@ npm run build
 ## File Structure
 todo-list-app
 ├── public                  # Public assets
-|
+
 ├── src                     # Source files
-|   |
+
 │   ├── components          # React components
-|   |   |
+
 │   │   └── ToDoList.js     # Main To-Do List component
-|   |
+
 │   ├── App.js              # Main app file
-|   |
+
 │   ├── main.jsx            # Entry point for React
-|   |
+
 │   └── index.css           # Global styles
-|
+
 ├── .gitignore              # Git ignore file
-|
+
 ├── index.html              # HTML template
-|
+
 ├── package.json            # NPM package configuration
-|
+
 ├── README.md               # Project README
-|
+
 └── vite.config.js          # Vite configuration
 
 
