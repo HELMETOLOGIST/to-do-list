@@ -36,7 +36,7 @@
 }
 
 .background {
-  background-image: url("./2315.jpg");
+  background-image: url('./assets/images/2315.jpg');
   background-size: cover;
   background-position: center;
   position: fixed; /* Fixed position to cover the entire viewport */
