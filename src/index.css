@@ -3,12 +3,7 @@
   margin: 50px auto;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.282
-  ); /* Transparent white background */
+  background-color: rgba(255, 255, 255, 0.282); /* Transparent white background */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.702); /* Soft shadow */
   font-family: Arial, sans-serif; /* Setting font family */
 }
@@ -128,10 +123,15 @@ li:hover {
 
 .text {
   flex: 1;
-  max-width: calc(100% - 120px); /* Adjust the maximum width as needed */
-  overflow: hidden; /* Hide overflow */
-  white-space: normal; /* Allow text to wrap */
+  font-weight:bolder;
+  color: #000000d6;
+  font-family:monospace;
+  font-size: 18px;
+  max-width: 200px; /* Fixed width for text area */
+  overflow:hidden; /* Hide overflow */
   margin-right: 10px; /* Small gap to the right of the text */
+  margin-left: 10px; /* Add gap between checkbox and text */
+  word-wrap: break-word;
 }
 
 .button-delete,
@@ -147,7 +147,8 @@ li:hover {
 
 .button-delete:hover,
 .button-up:hover,
-.button-down:hover {
+.button-down:hover,
+.button-edit:hover {
   color: #f44336; /* Red for delete, but it's your choice */
 }
 
@@ -167,4 +168,28 @@ li:hover {
 
 .completed-task .text {
   text-decoration: line-through;
+}
+
+/* Other existing styles */
+
+.icon-container {
+  display: flex;
+  gap: 0px; /* Adjust the spacing between icons as needed */
+}
+
+.button-delete,
+.button-edit,
+.button-up,
+.button-down {
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Show pointer cursor on hover */
+  padding: 5px; /* Add some padding for better click area */
+}
+
+.button-delete:hover,
+.button-edit:hover,
+.button-up:hover,
+.button-down:hover {
+  color: #007BFF; /* Change color on hover for better UX */
 }

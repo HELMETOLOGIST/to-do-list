@@ -173,27 +173,29 @@ function ToDoList() {
                     )}
                   </span>
                   <span className="text">{task.text}</span>
-                  <button
-                    className="button-delete"
-                    onClick={() => deleteTask(index)}
-                  >
-                    <FaTrash />
-                  </button>
-                  <button
-                    className="button-edit"
-                    onClick={() => editTask(index)}
-                  >
-                    <FaEdit />
-                  </button>
-                  <button className="button-up" onClick={() => upTask(index)}>
-                    {index === 0 ? null : <FaArrowUp />}
-                  </button>
-                  <button
-                    className="button-down"
-                    onClick={() => downTask(index)}
-                  >
-                    {index === tasks.length - 1 ? null : <FaArrowDown />}
-                  </button>
+                  <div className="icon-container">
+                    <button
+                      className="button-delete"
+                      onClick={() => deleteTask(index)}
+                    >
+                      <FaTrash />
+                    </button>
+                    <button
+                      className="button-edit"
+                      onClick={() => editTask(index)}
+                    >
+                      <FaEdit />
+                    </button>
+                    <button className="button-up" onClick={() => upTask(index)}>
+                      {index === 0 ? null : <FaArrowUp />}
+                    </button>
+                    <button
+                      className="button-down"
+                      onClick={() => downTask(index)}
+                    >
+                      {index === tasks.length - 1 ? null : <FaArrowDown />}
+                    </button>
+                  </div>
                 </>
               )}
             </li>
