@@ -73,7 +73,6 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 
 ## License
 This project is licensed under the MIT License.
--------------------------------------------------------------------------
 
 Getting Started with Vite and React
 This project uses Vite to provide a fast and minimal setup for React development.
