@@ -84,7 +84,7 @@ Currently, two official plugins are available for React projects in Vite:
 ● [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md): Uses [Babel](https://babeljs.io/) for Fast Refresh.
 ● [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc): Uses [SWC](https://swc.rs/) for Fast Refresh.
 
-Setting Up Vite with React
+## Setting Up Vite with React
 1. Create a new Vite project:
 ```
 npm create vite@latest
