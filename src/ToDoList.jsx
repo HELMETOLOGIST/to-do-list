@@ -40,7 +40,7 @@ function ToDoList() {
     }
 
     toast.success("Task added successfully!");
-    setTasks((t) => [...t, { text: newTask, completed: false }]);
+    setTasks((t) => [{ text: newTask, completed: false }, ...t]);
     setNewTask("");
   }
 
