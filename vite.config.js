@@ -7,4 +7,5 @@ export default defineConfig({
   build: {
     outDir: 'build', // ensure this is 'build' or change your deploy script accordingly
   },
+  base: '/to-do-list/' // replace 'to-do-list' with your actual repository name
 });
