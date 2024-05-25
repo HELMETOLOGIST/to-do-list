@@ -24,6 +24,8 @@ This is a React-based To-Do List application using Vite for a fast development s
 
 ● React Toastify: To add beautiful notifications to the app.
 
+## Live Project
+[Live:](https://helmetologist.github.io/to-do-list/) 
 
 ## Installation and Setup
 1. Clone the repository:
